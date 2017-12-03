@@ -23,7 +23,8 @@
         <activity android:name=".Main4Activity" />
         <activity android:name=".FitnessTrainingSelectActivity" />
         <activity android:name=".Main6Activity" />
-        <activity android:name=".FitnessTrainingActivity"></activity>
+        <activity android:name=".FitnessTrainingActivity" />
+        <activity android:name=".FitnessTrainingStartActivity"></activity>
     </application>
 
 </manifest>
