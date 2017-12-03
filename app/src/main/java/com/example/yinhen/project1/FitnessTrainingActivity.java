@@ -14,6 +14,8 @@ import butterknife.ButterKnife;
 
 public class FitnessTrainingActivity extends AppCompatActivity {
 
+    public static final int REQUEST_START = 100;
+
     String type;
     @BindView(R.id.text_title)
     TextView textTitle;
@@ -67,7 +69,7 @@ public class FitnessTrainingActivity extends AppCompatActivity {
             setSpinnerData(spinnerItemCount3, data3);
             spinnerItemCount4.setVisibility(View.INVISIBLE);
         } else if (type.equals("臀部")) {
-            itemTitle = new String[]{"深蹲", "臥姿抬腿"};
+            itemTitle = new String[]{"深蹲", "臥姿抬臀"};
             textTitle.setText("臀部訓練");
             final String[] data1 = {"20", "25", "30", "35", "40"};
             setSpinnerData(spinnerItemCount1, data1);
@@ -110,11 +112,11 @@ public class FitnessTrainingActivity extends AppCompatActivity {
         if (itemTitle.length > 0)
             textItem1.setText(itemTitle[0]);
         if (itemTitle.length > 1)
-            textItem1.setText(itemTitle[1]);
+            textItem2.setText(itemTitle[1]);
         if (itemTitle.length > 2)
-            textItem1.setText(itemTitle[2]);
+            textItem3.setText(itemTitle[2]);
         if (itemTitle.length > 3)
-            textItem1.setText(itemTitle[3]);
+            textItem4.setText(itemTitle[3]);
         buttonBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,12 +126,12 @@ public class FitnessTrainingActivity extends AppCompatActivity {
                 if (itemTitle.length > 0)
                     intent.putExtra("ItemCount1", spinnerItemCount1.getSelectedItem().toString());
                 if (itemTitle.length > 1)
-                    intent.putExtra("ItemCount1", spinnerItemCount2.getSelectedItem().toString());
+                    intent.putExtra("ItemCount2", spinnerItemCount2.getSelectedItem().toString());
                 if (itemTitle.length > 2)
-                    intent.putExtra("ItemCount2", spinnerItemCount3.getSelectedItem().toString());
+                    intent.putExtra("ItemCount3", spinnerItemCount3.getSelectedItem().toString());
                 if (itemTitle.length > 3)
-                    intent.putExtra("ItemCount3", spinnerItemCount4.getSelectedItem().toString());
-                startActivity(intent);
+                    intent.putExtra("ItemCount4", spinnerItemCount4.getSelectedItem().toString());
+                startActivityForResult(intent, REQUEST_START);
             }
         });
     }
@@ -139,5 +141,15 @@ public class FitnessTrainingActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item,
                 data);
         spinner.setAdapter(lunchList);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_START) {
+            if (resultCode == RESULT_OK) {
+                finish();
+            }
+        }
     }
 }

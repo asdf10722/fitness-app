@@ -7,22 +7,14 @@
     android:orientation="vertical"
     tools:context="com.example.yinhen.project1.FitnessTrainingStartActivity">
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/text_title"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_weight="0"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="369dp"
-            android:layout_height="61dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="預備開始"
-            android:textSize="24sp" />
-
-
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,8 +31,8 @@
             android:textSize="16sp"
             tools:text="標題" />
 
-        <Spinner
-            android:id="@+id/spinner_item_count1"
+        <TextView
+            android:id="@+id/text_item_count1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0"
@@ -50,9 +42,101 @@
             android:textSize="16sp"
             tools:text="10" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_item2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="標題" />
+
+        <TextView
+            android:id="@+id/text_item_count2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_item3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="標題" />
+
+        <TextView
+            android:id="@+id/text_item_count3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="10" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_item4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="標題" />
+
+        <TextView
+            android:id="@+id/text_item_count4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            tools:text="10" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/button_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="下一個" />
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="5dp"
         android:src="@drawable/push_ups" />
 
