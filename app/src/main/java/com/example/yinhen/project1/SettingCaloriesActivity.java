@@ -1,25 +1,19 @@
 package com.example.yinhen.project1;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.yinhen.project1.base.BaseActivity;
 
 import butterknife.ButterKnife;
 
-public class Main2Activity extends AppCompatActivity {
+public class SettingCaloriesActivity extends BaseActivity {
 
     private Button button7, button8, button9, button10, button14, button15;
     private EditText editText, editText4, editText2, editText3, editText5,
@@ -30,14 +24,14 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_setting_calories);
         initView();
         ButterKnife.bind(this);
         setView();
         //CharSequence editText=editText7.getText();
         final Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         final String[] lunch = {"正常", "輕度", "中度", "重度", "極重度"};
-        ArrayAdapter<String> lunchList = new ArrayAdapter<>(Main2Activity.this,
+        ArrayAdapter<String> lunchList = new ArrayAdapter<>(SettingCaloriesActivity.this,
                 android.R.layout.simple_spinner_dropdown_item,
                 lunch);
         spinner2.setAdapter(lunchList);
@@ -45,7 +39,7 @@ public class Main2Activity extends AppCompatActivity {
 
         final Spinner spinner3 = (Spinner) findViewById(R.id.spinner3);
         final String[] lunch3 = {"男", "女"};
-        ArrayAdapter<String> lunch3List = new ArrayAdapter<>(Main2Activity.this,
+        ArrayAdapter<String> lunch3List = new ArrayAdapter<>(SettingCaloriesActivity.this,
                 android.R.layout.simple_spinner_dropdown_item,
                 lunch3);
         spinner3.setAdapter(lunch3List);
@@ -55,9 +49,9 @@ public class Main2Activity extends AppCompatActivity {
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Main2Activity.this, "回上頁", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingCaloriesActivity.this, "回上頁", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(Main2Activity.this, MainActivity.class);
+                intent.setClass(SettingCaloriesActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -125,7 +119,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(Main2Activity.this, Main4Activity.class);
+                intent.setClass(SettingCaloriesActivity.this, SettingMenuActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("editText7", editText7.getText().toString());
                 intent.putExtras(bundle);
@@ -177,9 +171,9 @@ public class Main2Activity extends AppCompatActivity {
         editText7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Main2Activity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingCaloriesActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(Main2Activity.this, FitnessTrainingActivity.class);
+                intent.setClass(SettingCaloriesActivity.this, FitnessTrainingActivity.class);
                 intent.putExtra("type", "建議熱量");
                 startActivity(intent);
             }

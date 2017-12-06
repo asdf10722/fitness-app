@@ -2,6 +2,10 @@ package com.example.yinhen.project1.libs;
 
 import com.example.yinhen.project1.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by Ray on 2017/12/4.
  */
@@ -38,6 +42,16 @@ public class Utils {
                 return R.drawable.lifting_dumbbells;
             default:
                 return R.drawable.lifting_dumbbells;
+        }
+    }
+
+    public static String convertDate(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日", Locale.TAIWAN);
+        try {
+            return format.format(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return format.format(new Date());
         }
     }
 }

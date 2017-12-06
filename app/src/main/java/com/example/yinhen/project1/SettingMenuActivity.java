@@ -1,7 +1,6 @@
 package com.example.yinhen.project1;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,9 +10,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.yinhen.project1.base.BaseActivity;
+
 import java.util.Objects;
 
-public class Main4Activity extends AppCompatActivity {
+public class SettingMenuActivity extends BaseActivity {
 
     private Button button12, button14,button15;
     private EditText editText13, editText14, editText15;
@@ -24,7 +25,7 @@ public class Main4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main4);
+        setContentView(R.layout.activity_setting_menu);
 
 
         Bundle bundle = getIntent().getExtras();
@@ -43,7 +44,7 @@ public class Main4Activity extends AppCompatActivity {
 
         }
         final Spinner spinner6 = (Spinner) findViewById(R.id.spinner6);
-        final ArrayAdapter<String> range6List = new ArrayAdapter<>(Main4Activity.this,
+        final ArrayAdapter<String> range6List = new ArrayAdapter<>(SettingMenuActivity.this,
                 android.R.layout.simple_spinner_dropdown_item,
                 range6);
         spinner6.setAdapter(range6List);
@@ -52,9 +53,9 @@ public class Main4Activity extends AppCompatActivity {
         button12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Main4Activity.this, "回上頁", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingMenuActivity.this, "回上頁", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(Main4Activity.this, Main2Activity.class);
+                intent.setClass(SettingMenuActivity.this, SettingCaloriesActivity.class);
                 startActivity(intent);
             }
         });
@@ -63,9 +64,9 @@ public class Main4Activity extends AppCompatActivity {
         button15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Main4Activity.this, "離開", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingMenuActivity.this, "離開", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(Main4Activity.this, MainActivity.class);
+                intent.setClass(SettingMenuActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

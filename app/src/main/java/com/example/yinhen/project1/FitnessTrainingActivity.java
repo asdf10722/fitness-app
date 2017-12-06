@@ -2,17 +2,18 @@ package com.example.yinhen.project1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.yinhen.project1.base.BaseActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FitnessTrainingActivity extends AppCompatActivity {
+public class FitnessTrainingActivity extends BaseActivity {
 
     public static final int REQUEST_START = 100;
 

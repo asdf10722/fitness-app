@@ -4,68 +4,52 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.yinhen.project1.base.BaseActivity;
 
 
-public class MainActivity extends AppCompatActivity {
-    private Button button, button2, button3, buttonFitnessTraining, button5, button6;
-    CardView cardSetCalories;
+public class MainActivity extends BaseActivity {
+    private Button buttonSettingMenu, buttonNutritionalExamination, buttonFitnessTraining, buttonTrainingAchievements, buttonExit;
+    CardView cardSettingCalories;
     //private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("tittle", (button == null) + "");
         setContentView(R.layout.activity_main);
-        button = (Button) findViewById(R.id.button);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button_nutritional_examination);
+        buttonSettingMenu = (Button) findViewById(R.id.button_setting_menu);
+        buttonNutritionalExamination = (Button) findViewById(R.id.button_nutritional_examination);
         buttonFitnessTraining = (Button) findViewById(R.id.button_fitness_training);
-        button5 = (Button) findViewById(R.id.button5);
-        button6 = (Button) findViewById(R.id.button6);
-        cardSetCalories = findViewById(R.id.card_set_calories);
-        cardSetCalories.setOnClickListener(new View.OnClickListener() {
+        buttonTrainingAchievements = (Button) findViewById(R.id.button_training_achievements);
+        buttonExit = (Button) findViewById(R.id.button_exit);
+        cardSettingCalories = findViewById(R.id.card_set_calories);
+        cardSettingCalories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Main2Activity.class);
-                startActivity(intent);
-            }
-        });
-        //Button nextPageBtn = (Button)findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Main2Activity.class);
+                intent.setClass(MainActivity.this, SettingCaloriesActivity.class);
                 startActivity(intent);
             }
         });
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        buttonSettingMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Main4Activity.class);
+                intent.setClass(MainActivity.this, SettingMenuActivity.class);
                 startActivity(intent);
             }
         });
 
-        button3.setOnClickListener(new View.OnClickListener() {
+        buttonNutritionalExamination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "營養檢視", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.putExtra("type", "建議熱量");
-                intent.setClass(MainActivity.this, Main3Activity.class);
+                intent.setClass(MainActivity.this, NutritionalExaminationActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,24 +57,22 @@ public class MainActivity extends AppCompatActivity {
         buttonFitnessTraining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, FitnessTrainingSelectActivity.class);
                 startActivity(intent);
             }
         });
 
-        button5.setOnClickListener(new View.OnClickListener() {
+        buttonTrainingAchievements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, Main6Activity.class);
+                intent.setClass(MainActivity.this, FitnessDiaryActivity.class);
                 startActivity(intent);
             }
         });
 
-        button6.setOnClickListener(new View.OnClickListener() {
+        buttonExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -123,9 +105,5 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
-
-
     }
-
-
 }

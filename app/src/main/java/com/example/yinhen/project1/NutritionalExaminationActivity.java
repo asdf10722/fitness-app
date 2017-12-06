@@ -3,9 +3,6 @@ package com.example.yinhen.project1;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +10,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.yinhen.project1.base.BaseActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class Main3Activity extends AppCompatActivity {
+public class NutritionalExaminationActivity extends BaseActivity {
 
     @BindView(R.id.editText8)
     EditText editText8;
@@ -50,7 +49,7 @@ public class Main3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_nutritional_examination);
         ButterKnife.bind(this);
         getData();
         setView();
@@ -75,10 +74,10 @@ public class Main3Activity extends AppCompatActivity {
         button11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Main3Activity.this, "回上頁", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NutritionalExaminationActivity.this, "回上頁", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.putExtra("type", "建議熱量");
-                intent.setClass(Main3Activity.this, MainActivity.class);
+                intent.setClass(NutritionalExaminationActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

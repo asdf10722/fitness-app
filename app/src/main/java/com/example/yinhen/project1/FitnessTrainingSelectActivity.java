@@ -2,16 +2,17 @@ package com.example.yinhen.project1;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.yinhen.project1.base.BaseActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FitnessTrainingSelectActivity extends AppCompatActivity {
+public class FitnessTrainingSelectActivity extends BaseActivity {
 
 
     @BindView(R.id.card_chest)

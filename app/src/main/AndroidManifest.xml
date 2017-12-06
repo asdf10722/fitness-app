@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.yinhen.project1">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,15 +19,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main2Activity"
+            android:name=".SettingCaloriesActivity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Main3Activity" />
-        <activity android:name=".Main4Activity" />
+        <activity android:name=".NutritionalExaminationActivity" />
+        <activity android:name=".SettingMenuActivity" />
         <activity android:name=".FitnessTrainingSelectActivity" />
-        <activity android:name=".Main6Activity" />
+        <activity android:name=".FitnessDiaryActivity" />
         <activity android:name=".FitnessTrainingActivity" />
-        <activity android:name=".FitnessTrainingStartActivity"></activity>
+        <activity android:name=".FitnessTrainingStartActivity" />
+        <activity android:name=".FitnessDiaryAddActivity"></activity>
     </application>
 
 </manifest>

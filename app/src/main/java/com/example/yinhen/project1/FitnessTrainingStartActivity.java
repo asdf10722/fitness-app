@@ -2,19 +2,19 @@ package com.example.yinhen.project1;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.yinhen.project1.base.BaseActivity;
 import com.example.yinhen.project1.libs.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FitnessTrainingStartActivity extends AppCompatActivity {
+public class FitnessTrainingStartActivity extends BaseActivity {
 
     String[] itemTitle;
 
@@ -89,11 +89,15 @@ public class FitnessTrainingStartActivity extends AppCompatActivity {
         }
         if (itemTitle.length > 2) {
             textItem3.setText(itemTitle[2]);
-            textItemCount3.setText(String.format("%d次", ItemCount3));
+            if (itemTitle[2].equals("平板撐體"))
+                textItemCount3.setText(String.format("%d秒", ItemCount3));
+            else textItemCount3.setText(String.format("%d次", ItemCount3));
         }
         if (itemTitle.length > 3) {
             textItem4.setText(itemTitle[3]);
-            textItemCount4.setText(String.format("%d次", ItemCount4));
+            if (itemTitle[2].equals("平板撐體"))
+                textItemCount4.setText(String.format("%d秒", ItemCount4));
+            else textItemCount4.setText(String.format("%d次", ItemCount4));
         }
         updateCurrentTraining();
     }
@@ -119,7 +123,7 @@ public class FitnessTrainingStartActivity extends AppCompatActivity {
         if (position < itemTitle.length - 1) {
             position++;
             updateCurrentTraining();
-        }else {
+        } else {
             setResult(RESULT_OK, getIntent());
             finish();
         }
