@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/editText8"
                 android:layout_gravity="center"
                 android:textSize="24sp"
                 android:gravity="center"
@@ -135,7 +135,7 @@
                 android:text="確定"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/button9" />
+                android:id="@+id/button10" />
 
             <Button
                 android:text="回上頁"

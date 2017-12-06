@@ -1,4 +1,6 @@
-package com.example.yinhen.project1;
+package com.example.yinhen.project1.libs;
+
+import com.example.yinhen.project1.R;
 
 /**
  * Created by Ray on 2017/12/4.
@@ -14,7 +16,7 @@ public class Utils {
                 return R.drawable.sit_ups;
             case "仰臥舉腿":
                 return R.drawable.supine_lift_legs;
-            case "俯臥撐":
+            case "伏臥撐":
                 return R.drawable.tilting_support;
             case "側躺抬腿":
                 return R.drawable.lying_on_the_side_legs;

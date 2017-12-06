@@ -22,26 +22,26 @@
 
         <android.support.v7.widget.CardView
             android:id="@+id/card_chest"
-            android:layout_margin="5dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
             card_view:cardCornerRadius="4dp">
 
             <TextView
-                android:textSize="24sp"
-                android:textColor="@color/black"
-                android:layout_margin="5dp"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="胸部運動"/>
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="胸部運動"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/chest_training" />
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -51,11 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             card_view:cardCornerRadius="4dp">
-            <ImageView
-                android:layout_margin="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+
             <TextView
                 android:textSize="24sp"
                 android:textColor="@color/black"
@@ -64,6 +60,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="臀部運動"/>
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/buttocks_training" />
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -75,9 +77,9 @@
             card_view:cardCornerRadius="4dp">
             <ImageView
                 android:layout_margin="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/arm_training"/>
             <TextView
                 android:textSize="24sp"
                 android:textColor="@color/black"
@@ -97,9 +99,9 @@
             card_view:cardCornerRadius="4dp">
             <ImageView
                 android:layout_margin="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/leg_training"/>
             <TextView
                 android:textSize="24sp"
                 android:textColor="@color/black"
@@ -119,9 +121,9 @@
             card_view:cardCornerRadius="4dp">
             <ImageView
                 android:layout_margin="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/abdominal_training"/>
             <TextView
                 android:textSize="24sp"
                 android:textColor="@color/black"

@@ -17,6 +17,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+
 public class Main2Activity extends AppCompatActivity {
 
     private Button button7, button8, button9, button10, button14, button15;
@@ -30,6 +32,8 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         initView();
+        ButterKnife.bind(this);
+        setView();
         //CharSequence editText=editText7.getText();
         final Spinner spinner2 = (Spinner) findViewById(R.id.spinner2);
         final String[] lunch = {"正常", "輕度", "中度", "重度", "極重度"};
@@ -168,8 +172,20 @@ public class Main2Activity extends AppCompatActivity {
         editText8 = (EditText) findViewById(R.id.editText8);
         button9 = (Button) findViewById(R.id.button9);
     }
-}
 
+    private void setView() {
+        editText7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(Main2Activity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setClass(Main2Activity.this, FitnessTrainingActivity.class);
+                intent.putExtra("type", "建議熱量");
+                startActivity(intent);
+            }
+        });
+    }
+    }
 
 
 

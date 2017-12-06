@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.button);
         button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
+        button3 = (Button) findViewById(R.id.button_nutritional_examination);
         buttonFitnessTraining = (Button) findViewById(R.id.button_fitness_training);
         button5 = (Button) findViewById(R.id.button5);
         button6 = (Button) findViewById(R.id.button6);
@@ -62,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "營養檢視", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
+                intent.putExtra("type", "建議熱量");
                 intent.setClass(MainActivity.this, Main3Activity.class);
                 startActivity(intent);
             }

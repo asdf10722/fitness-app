@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.yinhen.project1.libs.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
