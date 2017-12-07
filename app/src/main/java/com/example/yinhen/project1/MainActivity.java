@@ -10,9 +10,24 @@ import android.widget.Button;
 
 import com.example.yinhen.project1.base.BaseActivity;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class MainActivity extends BaseActivity {
-    private Button buttonSettingMenu, buttonNutritionalExamination, buttonFitnessTraining, buttonTrainingAchievements, buttonExit;
+    @BindView(R.id.card_set_calories)
+    CardView cardSetCalories;
+    @BindView(R.id.card_set_menu)
+    CardView cardSetMenu;
+    @BindView(R.id.card_fitness_training)
+    CardView cardFitnessTraining;
+    @BindView(R.id.card_nutritional_examination)
+    CardView cardNutritionalExamination;
+    @BindView(R.id.card_training_achievements)
+    CardView cardTrainingAchievements;
+    @BindView(R.id.card_exit)
+    CardView cardExit;
     CardView cardSettingCalories;
     //private TextView textView;
 
@@ -20,11 +35,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        buttonSettingMenu = (Button) findViewById(R.id.button_setting_menu);
-        buttonNutritionalExamination = (Button) findViewById(R.id.button_nutritional_examination);
-        buttonFitnessTraining = (Button) findViewById(R.id.button_fitness_training);
-        buttonTrainingAchievements = (Button) findViewById(R.id.button_training_achievements);
-        buttonExit = (Button) findViewById(R.id.button_exit);
+        ButterKnife.bind(this);
         cardSettingCalories = findViewById(R.id.card_set_calories);
         cardSettingCalories.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +46,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        buttonSettingMenu.setOnClickListener(new View.OnClickListener() {
+        cardSetMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -44,7 +55,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        buttonNutritionalExamination.setOnClickListener(new View.OnClickListener() {
+        cardNutritionalExamination.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -54,7 +65,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        buttonFitnessTraining.setOnClickListener(new View.OnClickListener() {
+        cardFitnessTraining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -63,7 +74,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        buttonTrainingAchievements.setOnClickListener(new View.OnClickListener() {
+        cardTrainingAchievements.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -72,7 +83,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        buttonExit.setOnClickListener(new View.OnClickListener() {
+        cardExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
@@ -105,5 +116,21 @@ public class MainActivity extends BaseActivity {
 
 
         });
+    }
+
+    @OnClick({R.id.card_set_menu, R.id.card_fitness_training, R.id.card_nutritional_examination, R.id.card_training_achievements, R.id.card_exit})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.card_set_menu:
+                break;
+            case R.id.card_fitness_training:
+                break;
+            case R.id.card_nutritional_examination:
+                break;
+            case R.id.card_training_achievements:
+                break;
+            case R.id.card_exit:
+                break;
+        }
     }
 }

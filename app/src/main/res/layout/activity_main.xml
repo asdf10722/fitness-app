@@ -42,39 +42,133 @@
                 android:textSize="16sp" />
         </android.support.v7.widget.CardView>
 
-        <Button
-            android:id="@+id/button_setting_menu"
-            android:layout_width="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <android.support.v7.widget.CardView
+
+            android:id="@+id/card_set_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        card_view:cardCornerRadius="4dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:text="設定菜單"
-            tools:ignore="HardcodedText" />
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </android.support.v7.widget.CardView>
 
-        <Button
-            android:id="@+id/button_fitness_training"
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_fitness_training"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="健身訓練"
-            tools:ignore="HardcodedText" />
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            card_view:cardCornerRadius="4dp">
 
-        <Button
-            android:id="@+id/button_nutritional_examination"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="健身訓練"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_nutritional_examination"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="營養檢視"
-            tools:ignore="HardcodedText" />
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            card_view:cardCornerRadius="4dp">
 
-        <Button
-            android:id="@+id/button_training_achievements"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="營養檢視"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_training_achievements"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="訓練成果"
-            tools:ignore="HardcodedText" />
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            card_view:cardCornerRadius="4dp">
 
-        <Button
-            android:id="@+id/button_exit"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="訓練成果"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="離開"
-            tools:ignore="HardcodedText" />
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            card_view:cardCornerRadius="4dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:text="離開"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </android.support.v7.widget.CardView>
+
     </LinearLayout>
 </RelativeLayout>
