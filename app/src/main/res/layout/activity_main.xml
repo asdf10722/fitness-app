@@ -27,10 +27,10 @@
             card_view:cardCornerRadius="4dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/set_calories_image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,11 +58,11 @@
         android:orientation="horizontal"
         card_view:cardCornerRadius="4dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@mipmap/ic_launcher" />
+         <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:src="@drawable/set_menu_image" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -83,10 +83,10 @@
             card_view:cardCornerRadius="4dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:src="@mipmap/ic_launcher" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/fitness_training_image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,10 +107,10 @@
             card_view:cardCornerRadius="4dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/nutritional_examination_image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -131,10 +131,10 @@
             card_view:cardCornerRadius="4dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:src="@mipmap/ic_launcher" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:src="@drawable/trainingz_results_image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -155,10 +155,10 @@
             card_view:cardCornerRadius="4dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/exit_image" />
 
             <TextView
                 android:layout_width="wrap_content"

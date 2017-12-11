@@ -20,7 +20,7 @@ public class Utils {
                 return R.drawable.sit_ups;
             case "仰臥舉腿":
                 return R.drawable.supine_lift_legs;
-            case "伏臥撐":
+            case "俯臥撐":
                 return R.drawable.tilting_support;
             case "側躺抬腿":
                 return R.drawable.lying_on_the_side_legs;

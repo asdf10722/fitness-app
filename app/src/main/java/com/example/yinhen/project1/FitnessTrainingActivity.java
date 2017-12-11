@@ -79,7 +79,7 @@ public class FitnessTrainingActivity extends BaseActivity {
             spinnerItemCount3.setVisibility(View.INVISIBLE);
             spinnerItemCount4.setVisibility(View.INVISIBLE);
         } else if (type.equals("手臂")) {
-            itemTitle = new String[]{"伏臥撐", "爬山式", "平板撐體"};
+            itemTitle = new String[]{"俯臥撐", "爬山式", "平板撐體"};
             textTitle.setText("手臂訓練");
             final String[] data1 = {"5", "6", "7", "8", "9", "10"};
             setSpinnerData(spinnerItemCount1, data1);
