@@ -132,11 +132,12 @@ public class FitnessDiaryAddActivity extends BaseActivity {
     }
 
     private void callImagePicker() {
-        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int permission = ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if (permission != PackageManager.PERMISSION_GRANTED) {
             //未取得權限，向使用者要求允許權限
             ActivityCompat.requestPermissions(this,
-                    new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE},
+                    new String[]{
+                    READ_EXTERNAL_STORAGE},
                     REQUEST_EXTERNAL_STORAGE
             );
             return;

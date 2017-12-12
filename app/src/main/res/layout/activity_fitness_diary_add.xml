@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:inputType="number"
-                    tools:text="65" />
+                    tools:text="65 " />
             </LinearLayout>
         </LinearLayout>
 
@@ -50,7 +50,8 @@
             android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+
+            android:layout_weight="5"
             tools:src="@mipmap/ic_launcher" />
     </LinearLayout>
 
@@ -69,8 +70,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:inputType="number"
-        tools:text="65" />
+        android:inputType="text"
+        tools:text="" />
 
     <Button
         android:id="@+id/button_select_image"
