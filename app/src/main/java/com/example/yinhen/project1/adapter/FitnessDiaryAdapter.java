@@ -2,6 +2,7 @@ package com.example.yinhen.project1.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.blankj.utilcode.util.ConvertUtils;
 import com.example.yinhen.project1.R;
 import com.example.yinhen.project1.libs.Constants;
 import com.example.yinhen.project1.libs.Preference;
@@ -61,8 +61,10 @@ public class FitnessDiaryAdapter extends RecyclerView.Adapter<FitnessDiaryAdapte
         Calendar calendarFirst = Calendar.getInstance();
         calendarCurrent.setTime(new Date(contactList.get(position).getDate()));
         calendarFirst.setTime(new Date(Preference.getLong(context, Constants.PREF_FIRST_DATE, new Date().getTime())));
-        if (contactList.get(position).getImage() != null)
-            holder.image.setImageBitmap(ConvertUtils.bytes2Bitmap(contactList.get(position).getImage()));
+        if (contactList.get(position).getImageUri() != null){
+            Uri uri = Uri.parse(contactList.get(position).getImageUri());
+            holder.image.setImageURI(uri);
+        }
         holder.textDate.setText(String.format("紀錄時間:%s", Utils.convertDate(new Date(contactList.get(position).getDate()))));
         //TODO: 年份可能不同
         holder.textWeek.setText(String.format(Locale.TAIWAN,

@@ -4,8 +4,6 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-import java.util.Arrays;
-
 /**
  * Created by Ray on 2017/12/7.
  */
@@ -30,17 +28,17 @@ public class FitnessDiary {
     private String content;
 
     @ColumnInfo(name = "image")
-    private byte[] image;
+    private String imageUri;
 
     public FitnessDiary() {
     }
 
-    public FitnessDiary(long date, double weight, double saveCalorie, String content, byte[] image) {
+    public FitnessDiary(long date, double weight, double saveCalorie, String content, String imageUri) {
         this.date = date;
         this.weight = weight;
         this.saveCalorie = saveCalorie;
         this.content = content;
-        this.image = image;
+        this.imageUri = imageUri;
     }
 
     public int getId() {
@@ -83,12 +81,12 @@ public class FitnessDiary {
         this.content = content;
     }
 
-    public byte[] getImage() {
-        return image;
+    public String getImageUri() {
+        return imageUri;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     @Override
@@ -99,7 +97,7 @@ public class FitnessDiary {
                 ", weight=" + weight +
                 ", saveCalorie=" + saveCalorie +
                 ", content='" + content + '\'' +
-                ", image=" + Arrays.toString(image) +
+                ", image=" + imageUri +
                 '}';
     }
 }

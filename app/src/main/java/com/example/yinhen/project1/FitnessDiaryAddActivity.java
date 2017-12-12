@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.blankj.utilcode.util.ConvertUtils;
 import com.example.yinhen.project1.base.BaseActivity;
 import com.example.yinhen.project1.libs.Constants;
 import com.example.yinhen.project1.libs.Preference;
@@ -36,7 +35,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class FitnessDiaryAddActivity extends BaseActivity {
 
@@ -68,6 +66,8 @@ public class FitnessDiaryAddActivity extends BaseActivity {
     double sum;
 
     Bitmap selectedImage = null;
+
+    Uri selectedUri = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,7 +119,7 @@ public class FitnessDiaryAddActivity extends BaseActivity {
                             weight,
                             sum,
                             content,
-                            ConvertUtils.bitmap2Bytes(selectedImage, Bitmap.CompressFormat.PNG));
+                            selectedUri.toString());
                     getDB().fitnessDiaryDao().insertAll(fitnessRecord);
                 } catch (Exception e) {
                     Toast.makeText(FitnessDiaryAddActivity.this, "錯誤", Toast.LENGTH_LONG).show();
@@ -137,7 +137,7 @@ public class FitnessDiaryAddActivity extends BaseActivity {
             //未取得權限，向使用者要求允許權限
             ActivityCompat.requestPermissions(this,
                     new String[]{
-                    READ_EXTERNAL_STORAGE},
+                            READ_EXTERNAL_STORAGE},
                     REQUEST_EXTERNAL_STORAGE
             );
             return;
@@ -157,8 +157,8 @@ public class FitnessDiaryAddActivity extends BaseActivity {
         super.onActivityResult(reqCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             try {
-                final Uri imageUri = data.getData();
-                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                selectedUri = data.getData();
+                final InputStream imageStream = getContentResolver().openInputStream(selectedUri);
                 selectedImage = BitmapFactory.decodeStream(imageStream);
                 image.setImageBitmap(selectedImage);
             } catch (FileNotFoundException e) {
