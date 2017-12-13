@@ -19,7 +19,6 @@ import com.example.yinhen.project1.models.FitnessDiary;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,19 +58,17 @@ public class FitnessDiaryAdapter extends RecyclerView.Adapter<FitnessDiaryAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         Calendar calendarCurrent = Calendar.getInstance();
         Calendar calendarFirst = Calendar.getInstance();
-        calendarCurrent.setTime(new Date(contactList.get(position).getDate()));
+        calendarCurrent.setTime(new Date(contactList.get(position).getEndDate()));
         calendarFirst.setTime(new Date(Preference.getLong(context, Constants.PREF_FIRST_DATE, new Date().getTime())));
         if (contactList.get(position).getImageUri() != null){
             Uri uri = Uri.parse(contactList.get(position).getImageUri());
             holder.image.setImageURI(uri);
         }
-        holder.textDate.setText(String.format("紀錄時間:%s", Utils.convertDate(new Date(contactList.get(position).getDate()))));
-        //TODO: 年份可能不同
-        holder.textWeek.setText(String.format(Locale.TAIWAN,
-                "第%d週", calendarCurrent.get(Calendar.WEEK_OF_YEAR) - calendarFirst.get(Calendar.WEEK_OF_YEAR)));
+        holder.textWeek.setText(String.format("開始時間: %s", Utils.convertDate(new Date(contactList.get(position).getStartDate()))));
+        holder.textDate.setText(String.format("結束時間: %s", Utils.convertDate(new Date(contactList.get(position).getEndDate()))));
         holder.textContent.setText(contactList.get(position).getContent());
-        holder.textSaveCalorie.setText(String.format("省下:%f大卡", contactList.get(position).getSaveCalorie()));
-        holder.textWeight.setText(String.format("體重:%f公斤", contactList.get(position).getWeight()));
+        holder.textSaveCalorie.setText(String.format("省下:%.2f大卡", contactList.get(position).getSaveCalorie()));
+        holder.textWeight.setText(String.format("體重:%.2f公斤", contactList.get(position).getWeight()));
     }
 
     @Override

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.yinhen.project1.base.BaseActivity;
 
@@ -40,58 +39,57 @@ public class FitnessTrainingSelectActivity extends BaseActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(FitnessTrainingSelectActivity.this, "回上頁", Toast.LENGTH_SHORT).show();
-                finish();
+                onBackPressed();
             }
         });
         cardChest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FitnessTrainingSelectActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(FitnessTrainingSelectActivity.this, FitnessTrainingActivity.class);
                 intent.putExtra("type", "胸部");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
         cardHip.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(FitnessTrainingSelectActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(FitnessTrainingSelectActivity.this, FitnessTrainingActivity.class);
                 intent.putExtra("type", "臀部");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
         cardArm.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(FitnessTrainingSelectActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(FitnessTrainingSelectActivity.this, FitnessTrainingActivity.class);
                 intent.putExtra("type", "手臂");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
         cardLeg .setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(FitnessTrainingSelectActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(FitnessTrainingSelectActivity.this, FitnessTrainingActivity.class);
                 intent.putExtra("type", "腿部");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
         cardAbdominal.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast.makeText(FitnessTrainingSelectActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(FitnessTrainingSelectActivity.this, FitnessTrainingActivity.class);
                 intent.putExtra("type", "腹部");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
         }

@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -28,7 +29,6 @@ import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -55,11 +55,8 @@ public class FitnessDiaryAddActivity extends BaseActivity {
     @BindView(R.id.edit_content)
     EditText editContent;
 
-    Calendar calendarWeekBegin;
-
     Calendar calendarCurrent;
-
-    Calendar calendarFirst;
+    Calendar calendarLast;
 
     private int week;
 
@@ -79,19 +76,15 @@ public class FitnessDiaryAddActivity extends BaseActivity {
 
     @SuppressLint("DefaultLocale")
     private void setView() {
-        calendarWeekBegin = Calendar.getInstance();
         calendarCurrent = Calendar.getInstance();
-        calendarFirst = Calendar.getInstance();
-        calendarWeekBegin.set(Calendar.DAY_OF_WEEK, 0);
-        calendarWeekBegin.set(Calendar.HOUR_OF_DAY, 0);
-        calendarWeekBegin.set(Calendar.MINUTE, 0);
-        calendarWeekBegin.set(Calendar.SECOND, 0);
-        calendarFirst.setTime(new Date(Preference.getLong(this, Constants.PREF_FIRST_DATE, new Date().getTime())));
-        week = calendarCurrent.get(Calendar.WEEK_OF_YEAR) - calendarFirst.get(Calendar.WEEK_OF_YEAR);
-        textWeek.setText(String.format(Locale.TAIWAN,
-                "第%d週", week));
+        calendarLast = Calendar.getInstance();
+        calendarLast.setTime(new Date(Preference.getLong(this, Constants.PREF_LAST_DATE, getDB().fitnessRecordDao().getMinDate())));
+        week = calendarCurrent.get(Calendar.WEEK_OF_YEAR) - calendarLast.get(Calendar.WEEK_OF_YEAR);
+        textWeek.setText(String.format("%s ~", Utils.convertDate(calendarLast.getTime())));
+        Log.e("calendarCurrent", Utils.convertDate(calendarCurrent.getTime()));
+        Log.e("calendarLast", Utils.convertDate(calendarLast.getTime()));
         textDate.setText(Utils.convertDate(calendarCurrent.getTime()));
-        List<FitnessRecord> fitnessRecordList = getDB().fitnessRecordDao().getByDate(calendarWeekBegin.getTimeInMillis(), calendarCurrent.getTimeInMillis());
+        List<FitnessRecord> fitnessRecordList = getDB().fitnessRecordDao().getByDate(calendarLast.getTimeInMillis(), calendarCurrent.getTimeInMillis());
         sum = calculateSum(fitnessRecordList);
         textSaveCalorie.setText(String.format("省下:%f大卡", sum));
     }
@@ -115,17 +108,21 @@ public class FitnessDiaryAddActivity extends BaseActivity {
                     double weight = Double.parseDouble(editWeight.getText().toString());
                     String content = editContent.getText().toString();
                     FitnessDiary fitnessRecord = new FitnessDiary(
+                            calendarLast.getTimeInMillis(),
                             calendarCurrent.getTimeInMillis(),
                             weight,
                             sum,
                             content,
-                            selectedUri.toString());
+                            selectedUri == null ? null : selectedUri.toString());
                     getDB().fitnessDiaryDao().insertAll(fitnessRecord);
+                    Preference.setLong(FitnessDiaryAddActivity.this, Constants.PREF_LAST_DATE, calendarCurrent.getTimeInMillis());
                 } catch (Exception e) {
+                    e.printStackTrace();
                     Toast.makeText(FitnessDiaryAddActivity.this, "錯誤", Toast.LENGTH_LONG).show();
+                    return;
                 } finally {
                     Toast.makeText(FitnessDiaryAddActivity.this, "成功", Toast.LENGTH_LONG).show();
-                    finish();
+                    onBackPressed();
                 }
                 break;
         }

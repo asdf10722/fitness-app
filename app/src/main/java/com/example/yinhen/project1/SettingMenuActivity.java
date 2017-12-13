@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.yinhen.project1.base.BaseActivity;
 
@@ -53,10 +52,7 @@ public class SettingMenuActivity extends BaseActivity {
         button12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SettingMenuActivity.this, "回上頁", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(SettingMenuActivity.this, SettingCaloriesActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
 
@@ -64,10 +60,10 @@ public class SettingMenuActivity extends BaseActivity {
         button15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SettingMenuActivity.this, "離開", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(SettingMenuActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
 
@@ -99,7 +95,7 @@ public class SettingMenuActivity extends BaseActivity {
                 editText14.setText(String.valueOf(String.format("%.2f", fat * 0.12 / count)));
                 editText15.setText(String.valueOf(String.format("%.2f", sugar * 0.63 / count)));
 
-
+                setResult(RESULT_OK);
             }
 
         });

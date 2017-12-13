@@ -26,7 +26,7 @@ public interface FitnessDiaryDao {
     @Query("SELECT * FROM FitnessDiary Where id IN (:id)")
     FitnessDiary getByID(int id);
 
-    @Query("SELECT * FROM FitnessDiary Where date IN (:date)")
+    @Query("SELECT * FROM FitnessDiary Where startDate IN (:date)")
     List<FitnessDiary> getByDate(String date);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

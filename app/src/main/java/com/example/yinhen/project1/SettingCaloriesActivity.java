@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.example.yinhen.project1.base.BaseActivity;
 
@@ -15,7 +14,9 @@ import butterknife.ButterKnife;
 
 public class SettingCaloriesActivity extends BaseActivity {
 
-    private Button button7, button8, button9, button10, button14, button15;
+    private static final int REQUEST_SET_MENU = 1001;
+
+    private Button buttonBack, button8, button9, button10, button14, button15;
     private EditText editText, editText4, editText2, editText3, editText5,
             editText6, editText7, editText8, editText9, editText10;
     double height, height2, weight, BMI, weight2, weight3, age, BMR1, BMR2;
@@ -45,14 +46,11 @@ public class SettingCaloriesActivity extends BaseActivity {
         spinner3.setAdapter(lunch3List);
 
 
-        button7 = (Button) findViewById(R.id.button7);
-        button7.setOnClickListener(new View.OnClickListener() {
+        buttonBack = (Button) findViewById(R.id.button7);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(SettingCaloriesActivity.this, "回上頁", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.setClass(SettingCaloriesActivity.this, MainActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
 
@@ -123,7 +121,8 @@ public class SettingCaloriesActivity extends BaseActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("editText7", editText7.getText().toString());
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_SET_MENU);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
 
@@ -171,15 +170,25 @@ public class SettingCaloriesActivity extends BaseActivity {
         editText7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(SettingCaloriesActivity.this, "按鈕點擊", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setClass(SettingCaloriesActivity.this, FitnessTrainingActivity.class);
                 intent.putExtra("type", "建議熱量");
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK){
+            if(requestCode == REQUEST_SET_MENU){
+                finish();
+            }
+        }
     }
+}
 
 
 

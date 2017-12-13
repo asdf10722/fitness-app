@@ -15,8 +15,11 @@ public class FitnessDiary {
     @ColumnInfo(name = "id")
     private int id;
 
-    @ColumnInfo(name = "date")
-    private long date;
+    @ColumnInfo(name = "startDate")
+    private long startDate;
+
+    @ColumnInfo(name = "endDate")
+    private long endDate;
 
     @ColumnInfo(name = "weight")
     private double weight;
@@ -33,8 +36,9 @@ public class FitnessDiary {
     public FitnessDiary() {
     }
 
-    public FitnessDiary(long date, double weight, double saveCalorie, String content, String imageUri) {
-        this.date = date;
+    public FitnessDiary(long startDate,long endDate, double weight, double saveCalorie, String content, String imageUri) {
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.weight = weight;
         this.saveCalorie = saveCalorie;
         this.content = content;
@@ -49,12 +53,20 @@ public class FitnessDiary {
         this.id = id;
     }
 
-    public long getDate() {
-        return date;
+    public long getStartDate() {
+        return startDate;
     }
 
-    public void setDate(long date) {
-        this.date = date;
+    public void setStartDate(long startDate) {
+        this.startDate = startDate;
+    }
+
+    public long getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(long endDate) {
+        this.endDate = endDate;
     }
 
     public double getWeight() {
@@ -93,11 +105,12 @@ public class FitnessDiary {
     public String toString() {
         return "FitnessDiary{" +
                 "id=" + id +
-                ", date=" + date +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 ", weight=" + weight +
                 ", saveCalorie=" + saveCalorie +
                 ", content='" + content + '\'' +
-                ", image=" + imageUri +
+                ", imageUri='" + imageUri + '\'' +
                 '}';
     }
 }

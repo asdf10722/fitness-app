@@ -133,6 +133,7 @@ public class FitnessTrainingActivity extends BaseActivity {
                 if (itemTitle.length > 3)
                     intent.putExtra("ItemCount4", spinnerItemCount4.getSelectedItem().toString());
                 startActivityForResult(intent, REQUEST_START);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
     }
@@ -149,7 +150,7 @@ public class FitnessTrainingActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_START) {
             if (resultCode == RESULT_OK) {
-                finish();
+                onBackPressed();
             }
         }
     }

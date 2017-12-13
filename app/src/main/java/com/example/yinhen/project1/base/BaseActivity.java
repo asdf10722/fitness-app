@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.yinhen.project1.R;
 import com.example.yinhen.project1.libs.AppDatabase;
 
 /**
@@ -30,5 +31,12 @@ public class BaseActivity extends AppCompatActivity {
 
     public AppDatabase getDB() {
         return ((BaseApplication) getApplication()).getDB();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_from_left,
+                R.anim.slide_out_from_right);
     }
 }

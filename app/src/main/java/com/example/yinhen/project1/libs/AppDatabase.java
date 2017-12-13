@@ -15,7 +15,7 @@ import com.example.yinhen.project1.models.FitnessRecord;
 @Database(entities = {
         FitnessRecord.class,
         FitnessDiary.class},
-        version = 1)
+        version = 3)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract FitnessDiaryDao fitnessDiaryDao();
     public abstract FitnessRecordDao fitnessRecordDao();

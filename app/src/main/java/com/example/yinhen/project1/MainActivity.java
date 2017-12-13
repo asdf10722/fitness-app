@@ -5,8 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.yinhen.project1.base.BaseActivity;
 
@@ -36,6 +36,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        Log.e("data",getDB().fitnessRecordDao().getAll().toString());
         cardSettingCalories = findViewById(R.id.card_set_calories);
         cardSettingCalories.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, SettingCaloriesActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
 
@@ -52,6 +54,7 @@ public class MainActivity extends BaseActivity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, SettingMenuActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
 
@@ -62,6 +65,7 @@ public class MainActivity extends BaseActivity {
                 intent.putExtra("type", "建議熱量");
                 intent.setClass(MainActivity.this, NutritionalExaminationActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
 
@@ -71,6 +75,7 @@ public class MainActivity extends BaseActivity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, FitnessTrainingSelectActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
 
@@ -80,6 +85,7 @@ public class MainActivity extends BaseActivity {
                 Intent intent = new Intent();
                 intent.setClass(MainActivity.this, FitnessDiaryActivity.class);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_from_left);
             }
         });
 
@@ -132,5 +138,10 @@ public class MainActivity extends BaseActivity {
             case R.id.card_exit:
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

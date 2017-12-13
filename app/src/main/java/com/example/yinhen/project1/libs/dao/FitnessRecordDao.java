@@ -29,6 +29,9 @@ public interface FitnessRecordDao {
     @Query("SELECT * FROM FitnessRecord Where date >= (:startDate) AND date <= (:endDate)")
     List<FitnessRecord> getByDate(long startDate,long endDate);
 
+    @Query("SELECT MIN(date) FROM FitnessRecord")
+    long getMinDate();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(FitnessRecord... FitnessRecords);
 

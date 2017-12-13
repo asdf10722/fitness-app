@@ -46,7 +46,7 @@ public class Utils {
     }
 
     public static String convertDate(Date date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy年MM月dd日", Locale.TAIWAN);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.TAIWAN);
         try {
             return format.format(date);
         } catch (Exception e) {

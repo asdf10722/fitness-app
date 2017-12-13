@@ -1,14 +1,12 @@
 package com.example.yinhen.project1;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.yinhen.project1.base.BaseActivity;
 
@@ -42,7 +40,7 @@ public class NutritionalExaminationActivity extends BaseActivity {
     @BindView(R.id.textView14)
     TextView textView14;
     @BindView(R.id.button11)
-    Button button11;
+    Button buttonBack;
     @BindView(R.id.activity_main3)
     RelativeLayout activityMain3;
 
@@ -70,15 +68,11 @@ public class NutritionalExaminationActivity extends BaseActivity {
         }
 
 
-        button11 = (Button) findViewById(R.id.button11);
-        button11.setOnClickListener(new View.OnClickListener() {
+        buttonBack = (Button) findViewById(R.id.button11);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(NutritionalExaminationActivity.this, "回上頁", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent();
-                intent.putExtra("type", "建議熱量");
-                intent.setClass(NutritionalExaminationActivity.this, MainActivity.class);
-                startActivity(intent);
+                onBackPressed();
             }
         });
         button10 = (Button) findViewById(R.id.button10);
